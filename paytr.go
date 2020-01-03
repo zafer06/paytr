@@ -91,15 +91,15 @@ func CheckHash(hashData map[string]string, merchantKey string, merchantSalt stri
 }
 
 // GetBasket ürünleri uygun formatta bir dizge haline getirir.
-func GetBasket(productList []Product) string {
-	var urunler string
-	for _, p := range productList {
-		urunler += getEncodedProduct(p.Name, p.Price, p.Quantity)
-		urunler += ","
+func GetBasket(products []Product) string {
+	var list string
+	for _, p := range products {
+		list += getEncodedProduct(p.Name, p.Price, p.Quantity)
+		list += ","
 	}
-	urunler = urunler[0 : len(urunler)-1]
+	list = list[0 : len(list)-1]
 
-	var encodedBasket = "[" + urunler + "]"
+	var encodedBasket = "[" + list + "]"
 	return base64.StdEncoding.EncodeToString([]byte(encodedBasket))
 }
 
