@@ -1,6 +1,7 @@
 package paytr
 
 import (
+	"fmt"
 	"os"
 	"testing"
 )
@@ -12,13 +13,15 @@ var merchant = Merchant{
 }
 
 func TestGetBasket(t *testing.T) {
-	var productList = []paytr.Product{
+	var productList = []Product{
 		{"Örnek ürün 1", "18.00", 1},
 		{"Örnek ürün 2", "33.25", 2},
 		{"Örnek ürün 3", "45.42", 1},
 	}
 
 	var basket = GetBasket(productList)
+
+	fmt.Println("--> ", basket)
 
 	if len(basket) == 0 {
 		t.Errorf("Basket formatı hatalı")

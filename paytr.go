@@ -99,7 +99,7 @@ func GetBasket(products []Product) string {
 	}
 	list = list[0 : len(list)-1]
 
-	return encodedBasket = "[" + list + "]"
+	return "[" + list + "]"
 }
 
 // Ürün bilglerindeki Türkçe karakterleri encode eder.
