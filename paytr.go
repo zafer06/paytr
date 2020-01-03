@@ -99,8 +99,7 @@ func GetBasket(products []Product) string {
 	}
 	list = list[0 : len(list)-1]
 
-	var encodedBasket = "[" + list + "]"
-	return base64.StdEncoding.EncodeToString([]byte(encodedBasket))
+	return encodedBasket = "[" + list + "]"
 }
 
 // Ürün bilglerindeki Türkçe karakterleri encode eder.
