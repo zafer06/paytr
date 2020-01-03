@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strconv"
 )
 
 const baseURL = "https://www.paytr.com/"
@@ -87,6 +88,27 @@ func CheckHash(hashData map[string]string, merchantKey string, merchantSalt stri
 	}
 
 	return check, hash
+}
+
+// GetBasket ürünleri uygun formatta bir dizge haline getirir.
+func GetBasket(productList []Product) string {
+	var urunler string
+	for _, p := range productList {
+		urunler += getEncodedProduct(p.Name, p.Price, p.Quantity)
+		urunler += ","
+	}
+	urunler = urunler[0 : len(urunler)-1]
+
+	var encodedBasket = "[" + urunler + "]"
+	return base64.StdEncoding.EncodeToString([]byte(encodedBasket))
+}
+
+// Ürün bilglerindeki Türkçe karakterleri encode eder.
+func getEncodedProduct(name string, price string, quantity int) string {
+	return "[" +
+		strconv.QuoteToASCII(name) + "," +
+		strconv.QuoteToASCII(price) + "," +
+		strconv.Itoa(quantity) + "]"
 }
 
 // tokenForBinNumber BinNumber sorgusu için gerekli kimlik dogrulama token dizesini oluşturur.
