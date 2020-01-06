@@ -1,7 +1,6 @@
 package paytr
 
 import (
-	"fmt"
 	"os"
 	"testing"
 )
@@ -20,8 +19,6 @@ func TestGetBasket(t *testing.T) {
 	}
 
 	var basket = GetBasket(productList)
-
-	fmt.Println("--> ", basket)
 
 	if len(basket) == 0 {
 		t.Errorf("Basket formatı hatalı")
