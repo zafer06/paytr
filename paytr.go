@@ -13,7 +13,7 @@ import (
 	"strconv"
 )
 
-const baseURL = "https://www.paytr.com/"
+const baseURL = "https://www.paytr.com/odeme/"
 
 type (
 	// Merchant model
@@ -40,12 +40,148 @@ type (
 		Schema       string `json:"schema"`
 		ErrMsg       string `json:"err_msg"`
 	}
+
+	// Installment model
+	Installment struct {
+		Status    string `json:"status"`
+		RequestID string `json:"request_id"`
+		ErrMsg    string `json:"err_msg"`
+		Rates     struct {
+			World struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"world"`
+			Axess struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"axess"`
+			Maximum struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"maximum"`
+			Cardfinans struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"cardfinans"`
+			Paraf struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"paraf"`
+			Advantage struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"advantage"`
+			Combo struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"combo"`
+			Bonus struct {
+				Taksit2  float64 `json:"taksit_2"`
+				Taksit3  float64 `json:"taksit_3"`
+				Taksit4  float64 `json:"taksit_4"`
+				Taksit5  float64 `json:"taksit_5"`
+				Taksit6  float64 `json:"taksit_6"`
+				Taksit7  float64 `json:"taksit_7"`
+				Taksit8  float64 `json:"taksit_8"`
+				Taksit9  float64 `json:"taksit_9"`
+				Taksit10 float64 `json:"taksit_10"`
+				Taksit11 float64 `json:"taksit_11"`
+				Taksit12 float64 `json:"taksit_12"`
+			} `json:"bonus"`
+		} `json:"oranlar"`
+	}
 )
+
+// GetInstallmentRates function
+func GetInstallmentRates(requestID string, merchant Merchant) Installment {
+	var hashStr = merchant.ID + requestID + merchant.Salt
+	var token = getToken(hashStr, merchant.Key)
+
+	var values = url.Values{
+		"merchant_id": {merchant.ID},
+		"request_id":  {requestID},
+		"paytr_token": {token},
+	}
+
+	var res = connect(baseURL+"taksit-oranlari", values)
+
+	var installment Installment
+	err := json.Unmarshal(res, &installment)
+	if err != nil {
+		log.Println("PayTR istek durumu: ", installment.Status)
+		log.Println("PayTR token istek sonucu: ", err)
+	}
+
+	return installment
+}
 
 // GetBinNumber function
 func GetBinNumber(binNumber string, merchant Merchant) BinNumber {
 	var hashStr = binNumber + merchant.ID + merchant.Salt
-	var token = tokenForBinNumber(hashStr, merchant.Key)
+	var token = getToken(hashStr, merchant.Key)
 
 	var values = url.Values{
 		"merchant_id": {merchant.ID},
@@ -53,7 +189,7 @@ func GetBinNumber(binNumber string, merchant Merchant) BinNumber {
 		"paytr_token": {token},
 	}
 
-	var res = connect(values)
+	var res = connect(baseURL+"api/bin-detail", values)
 
 	var bin BinNumber
 	err := json.Unmarshal(res, &bin)
@@ -110,16 +246,16 @@ func getEncodedProduct(name string, price string, quantity int) string {
 		strconv.Itoa(quantity) + "]"
 }
 
-// tokenForBinNumber BinNumber sorgusu için gerekli kimlik dogrulama token dizesini oluşturur.
-func tokenForBinNumber(hashStr string, merchantKey string) string {
+// getToken BinNumber sorgusu için gerekli kimlik dogrulama token dizesini oluşturur.
+func getToken(hashStr string, merchantKey string) string {
 	h := hmac.New(sha256.New, []byte(merchantKey))
 	h.Write([]byte(hashStr))
 	return base64.StdEncoding.EncodeToString(h.Sum(nil))
 }
 
 // PayTR api uzerinden bir istek gonderir.
-func connect(values url.Values) []byte {
-	res, err := http.PostForm(baseURL+"odeme/api/bin-detail", values)
+func connect(url string, values url.Values) []byte {
+	res, err := http.PostForm(url, values)
 	if err != nil {
 		fmt.Println("--> ", err)
 	}

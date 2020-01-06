@@ -3,12 +3,23 @@ package paytr
 import (
 	"os"
 	"testing"
+	"time"
 )
 
 var merchant = Merchant{
 	ID:   os.Getenv("PAYTR_MERCHANT_ID"),
 	Key:  os.Getenv("PAYTR_MERCHANT_KEY"),
 	Salt: os.Getenv("PAYTR_MERCHANT_SALT"),
+}
+
+func TestGetInstallmentRates(t *testing.T) {
+	var requestID = time.Now().Format("20060102T150405")
+
+	var installments = GetInstallmentRates(requestID, merchant)
+
+	if installments.Status != "success" {
+		t.Errorf("Installments fonksiyonunda hatalar var. Hata: %s", installments.ErrMsg)
+	}
 }
 
 func TestGetBasket(t *testing.T) {
